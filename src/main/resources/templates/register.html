@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 
 <head>
-    <title>Login page</title>
+    <title>Signup Form</title>
 
     <style>
 
@@ -24,7 +24,7 @@
         overflow: hidden;
       }
 
-      .login-content {
+      .signup-content {
         display: flex;
         flex-direction: column;
         padding-left: 150px;
@@ -32,22 +32,23 @@
         background-color: white;
       }
 
-      .login-header {
+      .signup-header {
         text-align: center;
+        font-weight: bold;
       }
 
       .form-item {
         margin-top: 2rem;
       }
 
-      label[for="username"], [for="password"] {
+      label [for="firstname"], [for="lastname"], [for="username"], [for="password"] {
         font-size: 18px;
-        font-weight: bold;
         padding: 0 1rem;
+        font-weight: bold;
         margin-bottom: 1rem;
       }
 
-      input[type="username"], input[type="password"] {
+      input[type="firstname"], [type="lastname"], [type="username"], [type="password"] {
         border: 1px solid black;
         height: 55px;
         padding: 0 1rem;
@@ -69,6 +70,7 @@
         font-size: 18px;
         background-color: black;
         color: white;
+        font-weight: bold;
         border-radius: 100px;
       }
 
@@ -82,26 +84,28 @@
         justify-content: center;
 
       }
-
-      .register {
-        min-height: calc(100vh - 40px * 2);
-        margin: 1rem;
-        padding-left: 150px;
-        color: black;
-        font-weight: bold;
-      }
       
     </style>
 </head>
 
   <body>
     <div class="container">
-      <form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+      <form action="#" th:action="@{doRegister}" th:object="${loginModel}" method="post">
 
-        <div class="login-content">
+        <div class="signup-content">
 
-          <div class="login-header">
-            <h1>Log In</h1>
+          <div class="signup-header">
+            <h1>Sign Up</h1>
+          </div>
+
+          <div class="form-item">
+            <label for="firstname">First Name</label>
+            <input type="firstname" th:field="*{firstName}" placeholder = "Enter firstname" name="firstname" required>
+          </div>
+
+        <div class="form-item">
+            <label for="lastname">Last Name</label>
+            <input type="lastname" th:field="*{lastName}" placeholder = "Enter lastname" name="lastname" required>
           </div>
 
           <div class="form-item">
@@ -114,7 +118,7 @@
             <input type="password" th:field="*{password}" placeholder = "Enter password" name="password" required>
           </div>
 
-          <button type="submit">Login</button>
+          <button type="submit">Sign Up</button>
 
         </div>
           
@@ -123,12 +127,6 @@
       <div class="login-picture">
         <!-- INSERT IMAGE FILE NAME-->
         <img src="image.png">
-      </div>
-
-      <div class="register">
-        <div align="center">
-          <small>or </small><a href="/login/register">Sign Up</a>
-        </div>
       </div>
 
     </div>

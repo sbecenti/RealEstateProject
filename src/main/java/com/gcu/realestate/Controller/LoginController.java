@@ -56,4 +56,19 @@ public class LoginController {
         }
 
     }
+
+    @GetMapping("/register")
+    public String register(Model model) {
+
+        model.addAttribute("title", "Signup Form");
+        model.addAttribute("loginModel", new LoginModel());
+
+        return "register";
+    }
+
+    @PostMapping("/doRegister")
+    public String doRegister(LoginModel loginModel, Model model) {
+        model.addAttribute("loginModel", loginModel);
+            return "LoginSuccess";
+    }
 }
