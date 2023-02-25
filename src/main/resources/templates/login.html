@@ -1,17 +1,131 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+
+<head>
     <title>Login page</title>
-  </head>
+
+    <style>
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 0;
+        margin: 10;
+        font-family: sans-serif
+      }
+
+      .container {
+        min-height: calc(100vh - 40px * 2);
+        display: grid;
+        grid-template-columns: 35% 65%;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .login-content {
+        display: flex;
+        flex-direction: column;
+        padding-left: 150px;
+        padding-top: 150px;
+        background-color: white;
+      }
+
+      .login-header {
+        text-align: center;
+      }
+
+      .form-item {
+        margin-top: 2rem;
+      }
+
+      label[for="username"], [for="password"] {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+      }
+
+      input[type="username"], input[type="password"] {
+        border: 1px solid black;
+        height: 55px;
+        padding: 0 1rem;
+        width: 100%;
+        outline: none;
+        transition: background .5s;
+        font-size: 18px;
+        border-radius: 100px;
+      }
+
+      button {
+        border: 1px solid black;
+        height: 55px;
+        padding: 0 2rem;
+        margin-top: 2rem;
+        width: 100%;
+        outline: none;
+        transition: background .5s;
+        font-size: 18px;
+        background-color: black;
+        color: white;
+        border-radius: 100px;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      .login-picture {
+        display: flex;
+        background-color: #eee;
+        justify-content: center;
+
+      }
+      
+
+
+
+
+
+
+
+    </style>
+</head>
+
   <body>
-    <h1>Login page</h1>
-    <p th:if="${loginError}" class="error">Wrong user or password</p>
-    <form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
-      <label for="username">Username</label>:
-      <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-      <label for="password">Password</label>:
-      <input type="password" id="password" name="password" /> <br />
-      <input type="submit" value="Log in" />
-    </form>
+    <div class="container">
+      <form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+
+        <div class="login-content">
+
+          <div class="login-header">
+            <h1>Log In</h1>
+          </div>
+
+          <div class="form-item">
+            <label for="username">Username</label>
+            <input type="username" th:field="*{username}" placeholder = "Enter username" name="username" required>
+          </div>
+
+        <div class="form-item">
+            <label for="password">Password</label>
+            <input type="password" th:field="*{password}" placeholder = "Enter password" name="password" required>
+          </div>
+
+          <button type="submit">Login</button>
+
+        </div>
+
+      </form>
+
+      <div class="login-picture">
+        <!-- INSERT IMAGE FILE NAME-->
+        <img src="image.png">
+      </div>
+
+    </div>
   </body>
+
 </html>
+
