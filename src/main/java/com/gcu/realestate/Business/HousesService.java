@@ -1,11 +1,15 @@
 package com.gcu.realestate.Business;
 
 import java.util.List;
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gcu.realestate.Model.ProductModel;
 
 public class HousesService implements HousesServiceInterface {
+    
+    //Uses dependecy injection
+    @Autowired
+    HousesDAInterface housesDAO;
     
     @Override
     public void test() {
@@ -14,41 +18,32 @@ public class HousesService implements HousesServiceInterface {
 
     @Override
     public List<ProductModel> getHouses() {
-        
-        List<ProductModel> houses = new ArrayList<ProductModel>();
-        houses.add(new ProductModel("Test House", "Test Location", "3-2-2002", "test.img", "test description", 3200000.00, 8243, 7, 7, 0L));
-
-        return houses;
+        return housesDAO.getHouses();
     }
 
     @Override
     public ProductModel getOne(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOne'");
+       return housesDAO.getOne(id);
     }
 
     @Override
     public List<ProductModel> searchProduct(String searchTerm) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchProduct'");
+        return housesDAO.searchProduct(searchTerm);
     }
 
     @Override
     public int addOne(ProductModel newProduct) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addOne'");
+        return housesDAO.addOne(newProduct);
     }
 
     @Override
     public boolean deleteOne(long l) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteOne'");
+        return housesDAO.deleteOne(l);
     }
 
     @Override
     public ProductModel updateOne(long idToUpdate, ProductModel updateOrder) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateOne'");
+        return housesDAO.updateOne(idToUpdate, updateOrder);
     }
 
     @Override

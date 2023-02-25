@@ -19,7 +19,7 @@ public class RegistrationController {
         model.addAttribute("title", "Sign Up");
         model.addAttribute("loginModel", new LoginModel());
 
-        return "registration";
+        return "registerForm";
     }
 
 }
