@@ -14,7 +14,8 @@
             table, th, td {
                 border: 1px solid black;
                 border-collapse: collapse;
-                padding:2px
+                padding:2px;
+                
             }
         </style>
     </head>
@@ -45,5 +46,15 @@
                 <td th:text="${house.dateOfConstruction}"></td>
             </tr>
         </table>
+
+        <div class="data-input">
+            <form action="#" th:action="@{input}" th:object="${productsModel}" method="get">
+            
+              <button type="submit">Input</button>
+
+            </form>
+            
+          </div>
+
     </body>
 </html>

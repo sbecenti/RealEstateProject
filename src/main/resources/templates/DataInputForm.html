@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<body>
+    <div class="container">
+      <form action="#" th:action="@{inputsuccess}" th:object="${productModel}" method="post">
+
+        <div class="data-content">
+
+          <div class="data-header">
+            <h1>Input Form</h1>
+          </div>
+
+          <div class="form-item">
+            <label for="nameOfProperty">Name of property</label>
+            <input type="nameOfProperty" th:field="*{nameOfProperty}" placeholder = "Enter property name" name="nameOfProperty" required>
+          </div>
+
+          <div class="form-item">
+            <label for="location">Name of location</label>
+            <input type="location" th:field="*{location}" placeholder = "Enter location name" name="location" required>
+          </div>
+
+          <div class="form-item">
+            <label for="description">Description of property</label>
+            <input type="description" th:field="*{description}" placeholder = "Enter a description" name="description" required>
+          </div>
+
+          <div class="form-item">
+            <label for="value">Value of propertyy</label>
+            <input type="value" th:field="*{value}" placeholder = "Enter a value" name="value" required>
+          </div>
+
+          <div class="form-item">
+            <label for="squareFeet">How many square feet</label>
+            <input type="squareFeet" th:field="*{squareFeet}" placeholder = "Enter square squareFeet" name="squareFeet" required>
+          </div>
+
+          <div class="form-item">
+            <label for="numBaths">Number of baths</label>
+            <input type="numBaths" th:field="*{numBaths}" placeholder = "Enter number baths" name="numBaths" required>
+          </div>
+
+          <div class="form-item">
+            <label for="numBRooms">Number of bed rooms</label>
+            <input type="numBRooms" th:field="*{numBRooms}" placeholder = "Enter number bed rooms" name="numBRooms" required>
+          </div>
+
+          <div class="photo-upload">
+            <label for="formFile" class="form-label">Upload Image</label>
+            <input class="form-control" type="file" id="formFile" th:field="*{photoFileName}">
+          </div>
+
+          <div class="form-item">
+            <label>
+                Enter construction date:
+                <input type="date" name="dateOfConstruction" th:field="*{dateOfConstruction}" />
+              </label>
+          </div>
+
+        
+
+          <button type="submit">Submit</button>
+
+        </div>
+          
+      </form>
+
+      
+
+      
+
+    </div>
+  </body>
+        
+   
+</html>

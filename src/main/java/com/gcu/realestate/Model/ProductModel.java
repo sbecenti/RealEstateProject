@@ -13,6 +13,8 @@ public class ProductModel {
     int numBRooms = 0;
     Long id = 0L;
 
+    public ProductModel() {}
+
     public ProductModel(String nameOfProperty, String location, String dateOfConstruction, String photoFileName,
             String description, double value, int squareFeet, int numBaths, int numBRooms, Long id) {
         this.nameOfProperty = nameOfProperty;
