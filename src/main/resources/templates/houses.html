@@ -47,11 +47,21 @@
                 <td th:text="${house.numBaths}"></td>
                 <td th:text="${house.numBRooms}"></td>
                 <td th:text="${house.dateOfConstruction}"></td>
+                <td>
+
+                    <form action="#" th:action="@{edit/{id}(id=${house.id})}" method="get">
+            
+                        <button type="submit">Input</button>
+          
+                      </form>        
+                    
+                </td>
+
             </tr>
         </table>
 
         <div class="data-input">
-            <form action="#" th:action="@{input}" th:object="${productsModel}" method="get">
+            <form action="#" th:action="@{new}" th:object="${productsModel}" method="get">
             
               <button type="submit">Input</button>
 

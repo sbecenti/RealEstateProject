@@ -22,7 +22,7 @@ public class HousesService implements HousesServiceInterface {
     }
 
     @Override
-    public ProductModel getOne(int id) {
+    public ProductModel getOne(Long id) {
        return housesDAO.getOne(id);
     }
 

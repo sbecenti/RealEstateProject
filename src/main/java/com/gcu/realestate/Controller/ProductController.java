@@ -36,8 +36,10 @@ public class ProductController {
         return "houses";
     }
 
+    
+
     @GetMapping("/{id}")
-    public String getOne(@PathVariable(name="id") int id, Model model) {
+    public String getOne(@PathVariable(name="id") Long id, Model model) {
 
         ProductModel house = housesService.getOne(id);
 
@@ -48,21 +50,42 @@ public class ProductController {
         return "houses";
     }
 
-    @GetMapping("/input")
-    public String displayInputForm(Model model) {
+    @GetMapping("/new")
+    public String proccessAddOne(Model model) {
         model.addAttribute("title", "Data Input Form");
         model.addAttribute("productModel", new ProductModel());
 
         return "DataInputForm";
     }
 
-    @PostMapping("/inputsuccess")
-    public String addOne(ProductModel productModel, Model model) {
+    @PostMapping("/processInput")
+    public String addOne(ProductModel productModel) {
 
         housesService.addOne(productModel);
 
-        return "inputsuccess";
+        return "redirect:/houses/";
 
     }
+
+    @GetMapping("/edit/{id}")
+    public String updateOne(@PathVariable(value = "id") Long id, Model model) {
+        
+        model.addAttribute("productModel", housesService.getOne(id));
+        
+        return "DataInputForm";
+    }
+
+    @PostMapping("/processEdit")
+    public String processEdit(ProductModel productModel) {
+
+
+        housesService.updateOne(productModel.getId(), productModel);
+
+        return "redirect:/houses/";
+
+
+    }
+
+    
 
 }

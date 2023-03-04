@@ -34,11 +34,11 @@ public class HousesDAO implements HousesDAInterface {
     }
 
     @Override
-    public ProductModel getOne(int id) {
+    public ProductModel getOne(Long id) {
         
         for(int i = 0; i < houses.size(); i++) {
             if (houses.get(i).getId() == id) {
-                return houses.get(id);
+                return houses.get(i);
             }
         }
         return null;

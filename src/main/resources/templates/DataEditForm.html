@@ -3,7 +3,7 @@
     
 <body>
     <div class="container">
-      <form action="#" th:action="@{processInput}" th:object="${productModel}" method="post">
+      <form action="#" th:action="@{processEdit}" th:object="${productModel}" method="post">
 
         <div class="data-content">
 
@@ -13,37 +13,37 @@
 
           <div class="form-item">
             <label for="nameOfProperty">Name of property</label>
-            <input type="nameOfProperty" th:field="*{nameOfProperty}" placeholder = "Enter property name" name="nameOfProperty" required>
+            <input type="nameOfProperty" th:field="*{nameOfProperty}" placeholder = "Enter property name" name="nameOfProperty" >
           </div>
 
           <div class="form-item">
             <label for="location">Name of location</label>
-            <input type="location" th:field="*{location}" placeholder = "Enter location name" name="location" required>
+            <input type="location" th:field="*{location}" placeholder = "Enter location name" name="location" >
           </div>
 
           <div class="form-item">
             <label for="description">Description of property</label>
-            <input type="description" th:field="*{description}" placeholder = "Enter a description" name="description" required>
+            <input type="description" th:field="*{description}" placeholder = "Enter a description" name="description" >
           </div>
 
           <div class="form-item">
             <label for="value">Value of propertyy</label>
-            <input type="value" th:field="*{value}" placeholder = "Enter a value" name="value" required>
+            <input type="value" th:field="*{value}" placeholder = "Enter a value" name="value" >
           </div>
 
           <div class="form-item">
             <label for="squareFeet">How many square feet</label>
-            <input type="squareFeet" th:field="*{squareFeet}" placeholder = "Enter square squareFeet" name="squareFeet" required>
+            <input type="squareFeet" th:field="*{squareFeet}" placeholder = "Enter square squareFeet" name="squareFeet" >
           </div>
 
           <div class="form-item">
             <label for="numBaths">Number of baths</label>
-            <input type="numBaths" th:field="*{numBaths}" placeholder = "Enter number baths" name="numBaths" required>
+            <input type="numBaths" th:field="*{numBaths}" placeholder = "Enter number baths" name="numBaths" >
           </div>
 
           <div class="form-item">
             <label for="numBRooms">Number of bed rooms</label>
-            <input type="numBRooms" th:field="*{numBRooms}" placeholder = "Enter number bed rooms" name="numBRooms" required>
+            <input type="numBRooms" th:field="*{numBRooms}" placeholder = "Enter number bed rooms" name="numBRooms" >
           </div>
 
           <div class="photo-upload">
