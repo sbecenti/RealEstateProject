@@ -50,6 +50,18 @@ public class ProductController {
         return "houses";
     }
 
+    @GetMapping("/search/{searchTerm}")
+    public String searchProduct(@PathVariable(name="searchTerm") String searchTerm, Model model) {
+
+        List<ProductModel> foundItems = housesService.searchProduct(searchTerm);
+
+        // Display houses html
+        model.addAttribute("title", "Properties available");
+        model.addAttribute("houses", foundItems);
+
+        return "houses";
+    }
+
     @GetMapping("/new")
     public String proccessAddOne(Model model) {
         model.addAttribute("title", "Data Input Form");
@@ -69,21 +81,34 @@ public class ProductController {
 
     @GetMapping("/edit/{id}")
     public String updateOne(@PathVariable(value = "id") Long id, Model model) {
+
+        ProductModel productModel = housesService.getHouses().stream().filter(p -> p.getId() == id).findFirst().get();
         
-        model.addAttribute("productModel", housesService.getOne(id));
+        model.addAttribute("productModel", productModel);
         
-        return "DataInputForm";
+        return "DataEditForm";
     }
 
     @PostMapping("/processEdit")
     public String processEdit(ProductModel productModel) {
 
+        ProductModel houseToEdit = housesService.getHouses().stream().filter(p -> p.getId() == productModel.getId()).findFirst().get();
 
-        housesService.updateOne(productModel.getId(), productModel);
+        housesService.updateOne(houseToEdit.getId(), productModel);
 
         return "redirect:/houses/";
 
 
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteOne(@PathVariable(value = "id") Long id, ProductModel model) {
+
+        ProductModel houseToDelete = housesService.getHouses().stream().filter(p -> p.getId() == model.getId()).findFirst().get();
+        
+        housesService.deleteOne(houseToDelete.getId());
+
+        return "redirect:/houses/";
     }
 
     

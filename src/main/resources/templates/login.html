@@ -27,6 +27,7 @@
       .login-content {
         display: flex;
         flex-direction: column;
+        justify-content: content;
         padding-left: 150px;
         padding-top: 150px;
         background-color: white;
@@ -78,6 +79,7 @@
 
       .login-picture {
         display: flex;
+        flex-direction:column-reverse;
         background-color: #eee;
         justify-content: center;
 
@@ -117,19 +119,19 @@
           <button type="submit">Login</button>
 
         </div>
+
+        <div class="register">
+          <div align="center">
+            <small>or </small><a href="/login/register">Sign Up</a>
+          </div>
+        </div>
+
+        <div class="login-picture">
+          <!-- INSERT IMAGE FILE NAME-->
+          <img src="/img/loginPicture.png" width="80%" >
+        </div>
           
       </form>
-
-      <div class="login-picture">
-        <!-- INSERT IMAGE FILE NAME-->
-        <img src="image.png">
-      </div>
-
-      <div class="register">
-        <div align="center">
-          <small>or </small><a href="/login/register">Sign Up</a>
-        </div>
-      </div>
 
     </div>
   </body>
