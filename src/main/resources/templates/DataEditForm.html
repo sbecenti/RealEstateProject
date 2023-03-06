@@ -12,49 +12,54 @@
           </div>
 
           <div class="form-item">
+            <label for="id">ID</label>
+            <input type="id" th:field="*{id}" th:value="${productModel.id}" placeholder = "Enter an ID" name="id" required>
+          </div>
+
+          <div class="form-item">
             <label for="nameOfProperty">Name of property</label>
-            <input type="nameOfProperty" th:field="*{nameOfProperty}" placeholder = "Enter property name" name="nameOfProperty" >
+            <input type="nameOfProperty" th:field="*{nameOfProperty}" th:value="${productModel.nameOfProperty}" placeholder = "Enter property name" name="nameOfProperty" required>
           </div>
 
           <div class="form-item">
             <label for="location">Name of location</label>
-            <input type="location" th:field="*{location}" placeholder = "Enter location name" name="location" >
+            <input type="location" th:field="*{location}" th:value="${productModel.location}" placeholder = "Enter location name" name="location" required>
           </div>
 
           <div class="form-item">
             <label for="description">Description of property</label>
-            <input type="description" th:field="*{description}" placeholder = "Enter a description" name="description" >
+            <input type="description" th:field="*{description}" th:value="${productModel.description}" placeholder = "Enter a description" name="description" required>
           </div>
 
           <div class="form-item">
             <label for="value">Value of propertyy</label>
-            <input type="value" th:field="*{value}" placeholder = "Enter a value" name="value" >
+            <input type="value" th:field="*{value}" th:value="${productModel.value}" placeholder = "Enter a value" name="value" required>
           </div>
 
           <div class="form-item">
             <label for="squareFeet">How many square feet</label>
-            <input type="squareFeet" th:field="*{squareFeet}" placeholder = "Enter square squareFeet" name="squareFeet" >
+            <input type="squareFeet" th:field="*{squareFeet}" th:value="${productModel.squareFeet}" placeholder = "Enter square squareFeet" name="squareFeet" required>
           </div>
 
           <div class="form-item">
             <label for="numBaths">Number of baths</label>
-            <input type="numBaths" th:field="*{numBaths}" placeholder = "Enter number baths" name="numBaths" >
+            <input type="numBaths" th:field="*{numBaths}" th:value="${productModel.numBaths}" placeholder = "Enter number baths" name="numBaths" required>
           </div>
 
           <div class="form-item">
             <label for="numBRooms">Number of bed rooms</label>
-            <input type="numBRooms" th:field="*{numBRooms}" placeholder = "Enter number bed rooms" name="numBRooms" >
+            <input type="numBRooms" th:field="*{numBRooms}" th:value="${productModel.numBRooms}" placeholder = "Enter number bed rooms" name="numBRooms" required>
           </div>
 
-          <div class="photo-upload">
-            <label for="formFile" class="form-label">Upload Image</label>
-            <input class="form-control" type="file" id="formFile" th:field="*{photoFileName}">
+          <div class="form-item">
+            <label for="photoFileName">Number of bed rooms</label>
+            <input type="photoFileName" th:field="*{photoFileName}" th:value="${productModel.photoFileName}" placeholder = "Enter file name" name="photoFileName" required>
           </div>
 
           <div class="form-item">
             <label>
                 Enter construction date:
-                <input type="date" name="dateOfConstruction" th:field="*{dateOfConstruction}" />
+                <input type="date" name="dateOfConstruction" th:value="${productModel.dateOfConstruction}" th:field="*{dateOfConstruction}" required />
               </label>
           </div>
 

@@ -15,8 +15,8 @@ public class HousesDAO implements HousesDAInterface {
     public HousesDAO() {
         houses = new ArrayList<ProductModel>();
 
-        houses.add(new ProductModel("New York Home", "6423 Alderton St, Flushing, NY 11374", "1930", "/img/NewYorkHouse1.png", "This 1800 square foot multi family home has 3 bedrooms and 2.0 bathrooms. This home is located at 6423 Alderton St, Flushing, NY 11374.", 1365000.00, 1800, 2, 3, 0L));
-        houses.add(new ProductModel("Lake Travis waterfront estate", "211 Costa Bella Dr, Austin, TX 78734", "2001", "/img/TexasHouse1.png", "Majestic, close-in Lake Travis waterfront estate on 3.24 delightfully manicured acres in the gated resort community of Costa Bella beckons those who appreciate only the finest craftsmanship and detail.", 7950000, 9261, 8, 6, 1L));
+        houses.add(new ProductModel("New York Home", "6423 Alderton St, Flushing, NY 11374", "6-16-1930", "/img/NewYorkHouse1.png", "This 1800 square foot multi family home has 3 bedrooms and 2.0 bathrooms. This home is located at 6423 Alderton St, Flushing, NY 11374.", 1365000.00, 1800, 2, 3, 0L));
+        houses.add(new ProductModel("Lake Travis waterfront estate", "211 Costa Bella Dr, Austin, TX 78734", "9-23-2001", "/img/TexasHouse1.png", "Majestic, close-in Lake Travis waterfront estate on 3.24 delightfully manicured acres in the gated resort community of Costa Bella beckons those who appreciate only the finest craftsmanship and detail.", 7950000, 9261, 8, 6, 1L));
         houses.add(new ProductModel("Test House2", "Test Location2", "3-2-2002", "test.img", "test description", 3200000.00, 8243, 7, 7, 2L));
         houses.add(new ProductModel("Test House3", "Test Location3", "3-2-2002", "test.img", "test description", 3200000.00, 8243, 7, 7, 3L));
 

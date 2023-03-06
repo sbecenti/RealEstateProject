@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <a class="navbar-brand mb-0 h1">
         <img src="/img/Logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Millionair's Joint
+        Millionaire's Joint
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,13 +20,13 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#" style="color:black">Account</a>
+            <a class="nav-link" href="/login/" style="color:black">Account</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
           <form action="#" th:action="@{search/{searchTerm}}" method="get">
 
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="query">
 
             <button class="btn btn-dark" type="submit">Search</button>
           </form>

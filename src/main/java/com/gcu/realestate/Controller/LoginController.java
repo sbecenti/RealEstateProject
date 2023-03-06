@@ -1,5 +1,6 @@
 package com.gcu.realestate.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -7,12 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.gcu.realestate.Business.SecurityServiceInterface;
 import com.gcu.realestate.Model.LoginModel;
 
 
 @Controller
 @RequestMapping("/login") 
 public class LoginController {
+
+    @Autowired
+    SecurityServiceInterface securityService;
     
     @GetMapping("/")
     public String display(Model model) {
@@ -26,33 +31,20 @@ public class LoginController {
     @PostMapping("/doLogin")
     public String doLogin(LoginModel loginModel, BindingResult bindingResult, Model model) {
 
-        // Check for validation erros
+        // Check for validation errors
         if (bindingResult.hasErrors()) {
-            model.addAttribute("loginModel", loginModel);
+            model.addAttribute("title", "Login Form");
 
-            return "LoginSuccess";
+            return "login";
         }
 
-        // Validate Logins
-        String[][]validLogins = new String[][] {
-            {"gcu", "1234"},
-           {"username", "password"}
-         };
-
-        // Check if login is valid
-        boolean success = false;
-        for(int i = 0; i < validLogins.length; i++) {
-          if(loginModel.getUsername().equals(validLogins[i][0]) && loginModel.getPassword().equals(validLogins[i][1])) {
-                success = true;
-            }
-        }
-
-        if (success) {
-            model.addAttribute("loginModel", loginModel);
-            return "LoginSuccess";
+        // Chekc for Valid logins
+        if (securityService.isAuthenticated(loginModel)) {
+            model.addAttribute("model", loginModel);
+            return "loginSuccess";
         }
         else {
-          return "login";
+            return "login";
         }
 
     }
