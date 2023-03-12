@@ -57,10 +57,8 @@
           </div>
 
           <div class="form-item">
-            <label>
-                Enter construction date:
-                <input type="date" name="dateOfConstruction" th:value="${productModel.dateOfConstruction}" th:field="*{dateOfConstruction}" required />
-              </label>
+            <label for="dateOfConstruction">Enter Construction Date</label>
+            <input type="dateOfConstruction" th:field="*{dateOfConstruction}" th:value="${productModel.dateOfConstruction}" placeholder = "Enter Contruction Date" name="dateOfConstruction" required>
           </div>
 
         

@@ -23,13 +23,18 @@
             <a class="nav-link" href="/login/" style="color:black">Account</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <form action="#" th:action="@{search/{searchTerm}}" method="get">
+        
+        <form action="#" th:action="@{/houses/search/{searchTerm}}" method="get">
 
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="query">
+          <div class="d-flex">
 
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="searchTerm">
             <button class="btn btn-dark" type="submit">Search</button>
-          </form>
+
+          </div>
+
+          </form>  
+
         </form>
       </div>
     </div>
