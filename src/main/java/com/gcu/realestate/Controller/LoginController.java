@@ -61,6 +61,8 @@ public class LoginController {
     @PostMapping("/doRegister")
     public String doRegister(LoginModel loginModel, Model model) {
         model.addAttribute("loginModel", loginModel);
+        securityService.addOne(loginModel);
+
             return "LoginSuccess";
     }
 

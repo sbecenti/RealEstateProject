@@ -17,15 +17,11 @@ import com.gcu.realestate.Business.ValidLogins;
 @Configuration
 public class SpringConfig {
 
-    @Bean(name="housesService", initMethod = "init", destroyMethod = "destroy")
-    @RequestScope
+    @Bean(name="housesService")
     public HousesServiceInterface getHouses() {
         return new HousesService();
     }
 
-
-    
-    
     @Bean(name="housesDAO1")
     public HousesDAInterface getDataSource() {
         return new HousesDataService();

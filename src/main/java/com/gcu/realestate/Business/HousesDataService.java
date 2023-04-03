@@ -44,11 +44,11 @@ public class HousesDataService implements HousesDAInterface {
     }
     @Override
     public List<ProductModel> searchProduct(String searchTerm) {
-        return jdbcTemplate.query("select * from PROPERTIES where PRODUCT_NAME LIKE ?", new ProductsMapper(), new Object[]{"%" + searchTerm + "%"});
+        return jdbcTemplate.query("select * from PROPERTIES where NAME_OF_PROPERTY LIKE ?", new ProductsMapper(), new Object[]{"%" + searchTerm + "%"});
     }
     @Override
     public int addOne(ProductModel newProduct) {
-        return jdbcTemplate.update("insert into PROPERTIES (NAME_OF_PROPERTY, LOCATION, DATE_OF_CONSTRUCTION, PHOTO_FILE_NAME, DESCTRIPTION, VALUE, SQUARE_FEET, NUMBER_BATHS, NUMBER_BEDROOMS, ID) values (?,?,?,?,?,?,?,?,?,?)",
+        return jdbcTemplate.update("insert into PROPERTIES (NAME_OF_PROPERTY, LOCATION, DATE_OF_CONSTRUCTION, PHOTO_FILE_NAME, DESCRIPTION, VALUE, SQUARE_FEET, NUMBER_BATHS, NUMBER_BEDROOMS, ID) values (?,?,?,?,?,?,?,?,?,?)",
             newProduct.getNameOfProperty(),
             newProduct.getLocation(),
             newProduct.getDateOfConstruction(),
@@ -68,7 +68,7 @@ public class HousesDataService implements HousesDAInterface {
     }
     @Override
     public ProductModel updateOne(long idToUpdate, ProductModel updateOrder) {
-        int result = jdbcTemplate.update("update PROPERTIES set NAME_OF_PROPERTY = ?, LOCATION = ?, DATE_OF_CONSTRUCTION = ?, PHOTO_FILE_NAME = ?, DESCTRIPTION = ?, VALUE = ?, SQUARE_FEET = ?, NUMBER_BATHS = ?, NUMBER_BEDROOMS = ? where id = ?",
+        int result = jdbcTemplate.update("update PROPERTIES set NAME_OF_PROPERTY = ?, LOCATION = ?, DATE_OF_CONSTRUCTION = ?, PHOTO_FILE_NAME = ?, DESCRIPTION = ?, VALUE = ?, SQUARE_FEET = ?, NUMBER_BATHS = ?, NUMBER_BEDROOMS = ?, ID = ? where id = ?",
             updateOrder.getNameOfProperty(),
             updateOrder.getLocation(),
             updateOrder.getDateOfConstruction(),
@@ -77,7 +77,8 @@ public class HousesDataService implements HousesDAInterface {
             updateOrder.getValue(),
             updateOrder.getSquareFeet(),
             updateOrder.getNumBaths(),
-            updateOrder.getNumBRooms()
+            updateOrder.getNumBRooms(),
+            updateOrder.getId()
             );
             if (result > 0) {
                 return updateOrder;

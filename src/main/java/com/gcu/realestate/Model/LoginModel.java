@@ -6,7 +6,15 @@ public class LoginModel {
     private String password;
     private String firstName;
     private String lastName;
-    
+
+    public LoginModel() {}
+
+    public LoginModel(String username, String password) {
+        this.username = username;
+        this.password = password;
+        // this.firstName = firstName;
+        // this.lastName = lastName;
+    }
     public String getUsername() {
         return username;
     }
