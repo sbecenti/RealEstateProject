@@ -9,7 +9,7 @@ public class HousesService implements HousesServiceInterface {
     
     //Uses dependecy injection
     @Autowired
-    HousesDAInterface housesDAO;
+    HousesDataService housesDAO;
     
     @Override
     public void test() {
