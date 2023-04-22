@@ -1,9 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    
+    <title>Data Edit Form</title>
+  
+      <style>
+  
+        * {
+          box-sizing: border-box;
+        }
+  
+        body {
+          padding: 0;
+          margin: 10;
+          font-family: Arial, sans-serif
+        }
+  
+        .container {
+          min-height: calc(100vh - 40px * 2);
+          display: grid;
+          grid-template-columns: 35% 65%;
+          border-radius: 10px;
+          overflow: hidden;
+          margin-bottom: 50px;
+        }
+  
+        .data-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: content;
+          padding-left: 150px;
+          padding-top: 150px;
+          background-color: white;
+        }
+  
+        .form-item {
+          margin-top: 2rem;
+        }
+  
+        label {
+          font-size: 18px;
+          font-weight: bold;
+          padding: 0 1rem;
+          margin-bottom: 1rem;
+        }
+  
+        input {
+          border: 1px solid black;
+          height: 55px;
+          padding: 0 1rem;
+          width: 100%;
+          outline: none;
+          transition: background .5s;
+          font-size: 18px;
+          border-radius: 100px;
+        }
+  
+        button[type="submit"] {
+          border: 1px solid black;
+          height: 55px;
+          padding: 0 2rem;
+          margin-top: 2rem;
+          width: 100%;
+          outline: none;
+          transition: background .5s;
+          font-size: 18px;
+          background-color: black;
+          color: white;
+          border-radius: 100px;
+        }
+  
+        button:hover {
+          opacity: 0.8;
+        }
+        
+      </style>
+  </head>
+
 <body>
     <div class="container">
-      <form action="#" th:action="@{/houses/processEdit}" th:object="${productModel}" method="post">
+      <form action="#" th:action="@{/home/processEdit}" th:object="${productModel}" method="post">
 
         <div class="data-content">
 
@@ -52,8 +126,15 @@
           </div>
 
           <div class="form-item">
-            <label for="photoFileName">Number of bed rooms</label>
-            <input type="photoFileName" th:field="*{photoFileName}" th:value="${productModel.photoFileName}" placeholder = "Enter file name" name="photoFileName" required>
+            <div class="photo-upload">
+              <label for="photoFileName">Enter image URL:</label>
+              <input type="text" id="photoFileName" placeholder = "Enter image URL" name="photoFileNamee" th:field="*{photoFileName}" th:value="${productModel.photoFileName}">
+  
+              <!-- <label for="formFile" class="form-label">Upload Image</label>
+              <input class="form-control" type="file" id="formFile" th:field="*{photoFileName}"> -->
+            </div>
+            <!-- <label for="photoFileName">Number of bed rooms</label>
+            <input type="photoFileName" th:field="*{photoFileName}" th:value="${productModel.photoFileName}" placeholder = "Enter file name" name="photoFileName" required> -->
           </div>
 
           <div class="form-item">

@@ -68,7 +68,7 @@ public class HousesDataService implements HousesDAInterface {
     }
     @Override
     public ProductModel updateOne(long idToUpdate, ProductModel updateOrder) {
-        int result = jdbcTemplate.update("update PROPERTIES set NAME_OF_PROPERTY = ?, LOCATION = ?, DATE_OF_CONSTRUCTION = ?, PHOTO_FILE_NAME = ?, DESCRIPTION = ?, VALUE = ?, SQUARE_FEET = ?, NUMBER_BATHS = ?, NUMBER_BEDROOMS = ?, ID = ? where id = ?",
+        int result = jdbcTemplate.update("update PROPERTIES set NAME_OF_PROPERTY = ?, LOCATION = ?, DATE_OF_CONSTRUCTION = ?, PHOTO_FILE_NAME = ?, DESCRIPTION = ?, VALUE = ?, SQUARE_FEET = ?, NUMBER_BATHS = ?, NUMBER_BEDROOMS = ? where id = ?",
             updateOrder.getNameOfProperty(),
             updateOrder.getLocation(),
             updateOrder.getDateOfConstruction(),
@@ -78,7 +78,7 @@ public class HousesDataService implements HousesDAInterface {
             updateOrder.getSquareFeet(),
             updateOrder.getNumBaths(),
             updateOrder.getNumBRooms(),
-            updateOrder.getId()
+            idToUpdate
             );
             if (result > 0) {
                 return updateOrder;

@@ -1,6 +1,7 @@
 package com.gcu.realestate.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,13 +18,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-@RequestMapping("/houses")
+@RequestMapping("/home")
 public class ProductController {
 
     @Autowired
     private HousesServiceInterface housesService;
-    
+
     @GetMapping("/")
+    public String showHome(Model model) {
+        
+        // Get Houses
+        List<ProductModel> houses = housesService.getHouses();
+
+        // Display houses html
+        model.addAttribute("title", "Properties available");
+        model.addAttribute("houses", houses);
+
+        return "housesNew";
+    }
+    
+    @GetMapping("/houses")
     public String showAllHouses(Model model) {
         
         // Get Houses
@@ -35,8 +49,6 @@ public class ProductController {
 
         return "houses";
     }
-
-    
 
     @GetMapping("/{id}")
     public String getOne(@PathVariable(name="id") Long id, Model model) {
@@ -96,15 +108,14 @@ public class ProductController {
 
     @PostMapping("/processEdit")
     public String processEdit(ProductModel productModel) {
-
-        ProductModel houseToEdit = housesService.getHouses().stream().filter(p -> p.getId() == productModel.getId()).findFirst().get();
-
-        housesService.updateOne(houseToEdit.getId(), productModel);
-
-        return "redirect:/houses/";
-
-
+    
+        Optional<ProductModel> houseToEditOptional = housesService.getHouses().stream().filter(p -> p.getId() == productModel.getId()).findFirst();
+    
+        houseToEditOptional.ifPresent(houseToEdit -> housesService.updateOne(houseToEdit.getId(), productModel));
+    
+        return "redirect:/home/houses";
     }
+    
 
     @PostMapping("/delete/{id}")
     public String deleteOne(@PathVariable(value = "id") Long id, ProductModel model) {
@@ -113,8 +124,16 @@ public class ProductController {
         
         housesService.deleteOne(houseToDelete.getId());
 
-        return "redirect:/houses/";
+        return "redirect:/home/houses";
     }
+
+    @GetMapping("/housedetails")
+    public String houseDetails(@RequestParam Long id, Model model) {
+        ProductModel productModel = housesService.getHouses().stream().filter(p -> p.getId() == id).findFirst().get();
+        model.addAttribute("house", productModel);
+        return "houseDetails";
+    }
+    
 
     
 
